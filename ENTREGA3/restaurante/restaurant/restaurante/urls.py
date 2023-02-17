@@ -20,5 +20,4 @@ from MiRestaurante.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("MiRestaurante/", include("MiRestaurante.urls")),
-    path("padre/", padre),
 ]

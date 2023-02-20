@@ -4,10 +4,13 @@ from django.db import models
 
 class Entrada(models.Model):
     plato=models.CharField(max_length=40)
-    cantidad=models.DateField
+    cantidad=models.CharField(max_length=20)
     bebida=models.CharField(max_length=40)
     numero_de_mesa=models.CharField(max_length=5)
 
+    def __str__(self):
+        return f"Plato:{self.plato} - Cantidad: {self.cantidad}- Bebida: {self.bebida}- Numero de Mesa: {self.numero_de_mesa}"
+        
 class PlatoPrincipal(models.Model):
     plato=models.CharField(max_length=40)
     cantidad=models.DateField
@@ -15,7 +18,7 @@ class PlatoPrincipal(models.Model):
     numero_de_mesa=models.CharField(max_length=5)
 
     def __str__(self):
-        return self.plato+""+self.cantidad+""+self.bebida
+        return f"Plato:{self.plato} - Cantidad: {self.cantidad}- Bebida: {self.bebida}- Numero de Mesa: {self.numero_de_mesa}"
 
 class Postre(models.Model):
     postres=models.CharField(max_length=40)

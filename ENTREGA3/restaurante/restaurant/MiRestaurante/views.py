@@ -5,7 +5,7 @@ from forms import *
 from MiRestaurante.models import *
 # Create your views here.
 def inicio(request):
-    mihtml= open("C:/Users/LTA/Desktop/ENTREGA3/restaurante/restaurant/MiRestaurante/template/MiRestaurante/inicio.html")
+    mihtml= open("C:/Users/LTA/Desktop/ENTREGA3/restaurante/restaurant/MiRestaurante/templates/MiRestaurante/inicio.html")
     plantilla= Template(mihtml.read())
     mihtml.close()
     miContexto= Context()
@@ -29,9 +29,10 @@ def restauranteFormulario(request):
         print(MiFormulario)
         if MiFormulario.is_valid:
             Informacion= MiFormulario.cleaned_data
-            restaurante= inicio (request.POST["Plato"], request.POST ["N_Mesa"])
+            restaurante= Entrada (plato= Informacion["Plato"], n_mesa= Informacion ["N_Mesa"])
             restaurante.save()
             return render(request,"MiRestaurante/inicio.html")
+        
     else:
         MiFormulario= RestauranteFormulario()
     return render (request, "MiRestaurante/RestauranteFormulario.html")
@@ -51,8 +52,11 @@ def buscar(request):
 
 def leerdatos(request):
     plato= Entrada.objects.all()
+    plato2=PlatoPrincipal.objects.all()
+    contexto2= {"Entrada:":plato2}
     contexto= {"Entrada:":plato}
-    return render(request, "MiRestaurante/leerdatos.html", contexto)
+    return render(request, "MiRestaurante/leerdatos.html", contexto, contexto2)
+    
 
 def eliminardatos(request, datos__nombre):
     plato= Entrada.objects.get(nombre=datos__nombre)

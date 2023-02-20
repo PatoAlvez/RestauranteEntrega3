@@ -4,7 +4,7 @@ from django.db import models
 
 class Entrada(models.Model):
     plato=models.CharField(max_length=40)
-    cantidad=models.CharField(max_length=20)
+    cantidad=models.DateField
     bebida=models.CharField(max_length=40)
     numero_de_mesa=models.CharField(max_length=5)
 

@@ -50,12 +50,10 @@ def buscar(request):
         respuesta= "No enviaste datos"
     return HttpResponse(respuesta)
 
-def leerdatos(request):
+def BaseDeDatos(request):
     plato= Entrada.objects.all()
-    plato2=PlatoPrincipal.objects.all()
-    contexto2= {"Entrada:":plato2}
     contexto= {"Entrada:":plato}
-    return render(request, "MiRestaurante/leerdatos.html", contexto, contexto2)
+    return render(request, "MiRestaurante/BaseDeDatos.html", contexto)
     
 
 def eliminardatos(request, datos__nombre):
@@ -64,4 +62,4 @@ def eliminardatos(request, datos__nombre):
 
     plato= Entrada.objects.all()
     contexto= {"Entrada:":plato}
-    return render(request, "MiRestaurante/leerdatos.html", contexto)
+    return render(request, "MiRestaurante/BaseDeDatos.html", contexto)

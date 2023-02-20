@@ -8,5 +8,7 @@ urlpatterns = [
     path("contacto", views.contacto, name="Contacto"),
     path("inicio", views.inicio, name="Inicio"),
     path("RestauranteFormulario", views.RestauranteFormulario, name="RestauranteFormulario"),
-    path("LeerDatos", views.leerdatos, name="LeerDatos")
+    path("BaseDeDatos", views.BaseDeDatos, name="BaseDeDatos"),
+    path("busquedaformulario", views.busquedaFormulario, name="BusquedaFormulario"),
+    path("buscar", views.buscar, name="Buscar"),
 ]

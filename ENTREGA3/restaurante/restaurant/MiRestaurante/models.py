@@ -9,7 +9,7 @@ class Entrada(models.Model):
     numero_de_mesa=models.CharField(max_length=5)
 
     def __str__(self):
-        return f"Plato:{self.plato} - Cantidad: {self.cantidad}- Bebida: {self.bebida}- Numero de Mesa: {self.numero_de_mesa}"
+        return f"Plato:{self.plato}- Bebida: {self.bebida}- Numero de Mesa: {self.numero_de_mesa}"
         
 class PlatoPrincipal(models.Model):
     plato=models.CharField(max_length=40)
